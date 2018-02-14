@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Spur\\PostmarkChannel\\": "src/"
+            "Spur\\Postmark\\": "src/"
         }
     },
     "minimum-stability": "dev",
@@ -26,7 +26,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spur\\PostmarkChannel\\ServiceProvider"
+                "Spur\\Postmark\\PostmarkServiceProvider"
             ]
         }
     }

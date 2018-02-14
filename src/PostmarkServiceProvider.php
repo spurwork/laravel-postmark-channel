@@ -1,13 +1,11 @@
 <?php
 
-namespace Spur\PostmarkChannel;
+namespace Spur\Postmark;
 
 use Postmark\PostmarkClient;
 
-class ServiceProvider extends \Illuminate\Support\ServiceProvider
+class PostmarkServiceProvider extends \Illuminate\Support\ServiceProvider
 {
-    protected $defer = true;
-
     public function register()
     {
         $this->app->singleton(PostmarkClient::class, function ($app) {

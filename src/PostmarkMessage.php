@@ -1,6 +1,6 @@
 <?php
 
-namespace Spur\PostmarkChannel;
+namespace Spur\Postmark;
 
 use Illuminate\Notifications\Messages\MailMessage;
 

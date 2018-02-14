@@ -1,6 +1,6 @@
 <?php
 
-namespace Spur\PostmarkChannel;
+namespace Spur\Postmark;
 
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Mail\Markdown;
