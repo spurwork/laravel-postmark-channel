@@ -2,13 +2,14 @@
 
 namespace Spur\Postmark;
 
+use Illuminate\Contracts\Mail\Mailable;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Mail\Markdown;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Str;
 use InvalidArgumentException;
 use Postmark\Models\PostmarkAttachment;
 use Postmark\PostmarkClient;
-use Str;
 
 class PostmarkChannel
 {
@@ -34,8 +35,12 @@ class PostmarkChannel
     {
         $message = $notification->toPostmark($notifiable);
 
-        if (!$notifiable->routeNotificationFor('mail')) {
+        if (!$notifiable->routeNotificationFor('postmark')) {
             return;
+        }
+
+        if ($message instanceof Mailable) {
+            return $message->send($this->mailer);
         }
 
         list($html, $plain) = $this->parseView($message);
@@ -104,8 +109,8 @@ class PostmarkChannel
     {
         $this->addressMessage($notifiable, $message);
 
-        $this->subject = $message->subject ?: str_title(
-            str_snake(class_basename($notification), ' ')
+        $this->subject = $message->subject ?: Str::title(
+            Str::snake(class_basename($notification), ' ')
         );
 
         $this->addAttachments($message);
@@ -145,7 +150,7 @@ class PostmarkChannel
 
     protected function getRecipients($notifiable)
     {
-        if (is_string($recipients = $notifiable->routeNotificationFor('mail'))) {
+        if (is_string($recipients = $notifiable->routeNotificationFor('postmark'))) {
             $recipients = [$recipients];
         }
 
