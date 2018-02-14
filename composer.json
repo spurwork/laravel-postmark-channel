@@ -1,0 +1,33 @@
+{
+    "name": "appletonlearning/laravel-postmark-channel",
+    "description": "A Postmark channel for Laravel notifications.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adam Campbell",
+            "email": "adam@spurjobs.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "illuminate/support": "^5.6",
+        "wildbit/postmark-php": "^2.5",
+        "illuminate/mail": "^5.6",
+        "illuminate/notifications": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Spur\\PostmarkChannel\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Spur\\PostmarkChannel\\ServiceProvider"
+            ]
+        }
+    }
+}
