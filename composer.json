@@ -1,7 +1,7 @@
 {
     "name": "appletonlearning/laravel-postmark-channel",
     "description": "A Postmark channel for Laravel notifications.",
-    "type": "library",
+    "homepage": "https://github.com/appletonlearning/laravel-postmark-channel",
     "license": "MIT",
     "authors": [
         {
@@ -10,11 +10,11 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
-        "illuminate/support": "^5.6",
+        "php": ">=5.6.4",
         "wildbit/postmark-php": "^2.5",
-        "illuminate/mail": "^5.6",
-        "illuminate/notifications": "^5.6"
+        "illuminate/mail": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*",
+        "illuminate/notifications": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*",
+        "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*"
     },
     "require-dev": {
         "phpunit/phpunit": "5.*"
@@ -26,6 +26,12 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
     "extra": {
         "laravel": {
             "providers": [
