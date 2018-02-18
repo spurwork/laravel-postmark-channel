@@ -27,7 +27,7 @@ If using Laravel 5.5+ the package will be auto-discovered.
 
 ## Usage
 
-In every `Notifiable` model you wish to be notifiable via Postmark, you must add an email address to that model accessible through a `routeNotificationForPostmakr` method:
+In every `Notifiable` model you wish to be notifiable via Postmark, you must add an email address to that model accessible through a `routeNotificationForPostmark` method:
 ```php
 class User extends Eloquent
 {
@@ -65,11 +65,11 @@ class InvoiceNotification extends Notification
 ```
 Just like regular `mail` type notifications, you can also send Markdown emails:
 ```php
-public function toMail($notifiable)
+public function toPostmark($notifiable)
 {
     $url = url('/invoice/'.$this->invoice->id);
 
-    return (new MailMessage)
+    return (new PostmarkMessage)
         ->subject('Invoice Paid')
         ->markdown('mail.invoice.paid', ['url' => $url]);
 }
