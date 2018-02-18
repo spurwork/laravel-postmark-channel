@@ -39,12 +39,12 @@ class User extends Eloquent
     }
 }
 ```
-You may now tell Laravel to send notifications to Discord channels in the `via` method:
+You may now tell Laravel to send notifications using Postmark in the `via` method:
 ```php
 use Spur\Postmark\PostmarkChannel;
 use Spur\Postmark\PostmarkMessage;
 
-class GameChallengeNotification extends Notification
+class InvoiceNotification extends Notification
 {
     public function via($notifiable)
     {
@@ -74,7 +74,7 @@ public function toMail($notifiable)
         ->markdown('mail.invoice.paid', ['url' => $url]);
 }
 ```
-In fact, the Postmark channel has the same API as the built-in Laravel `mail` channel. Follow the Laravel [Mail Notifications](https://laravel.com/docs/5.6/notifications#mail-notifications) and [Markdown Mails Notifications](https://laravel.com/docs/5.6/notifications#markdown-mail-notifications) documentation for full options.
+In fact, the Postmark channel has the same API as the built-in Laravel `mail` channel. Follow the Laravel [Mail Notifications](https://laravel.com/docs/master/notifications#mail-notifications) and [Markdown Mails Notifications](https://laravel.com/docs/master/notifications#markdown-mail-notifications) documentation for full options.
 
 ## Testing
 
