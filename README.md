@@ -5,7 +5,7 @@ This adds a Postmark notification channel for Laravel that allows your app to le
 ## Contents
 
 - [Installation](#installation)
-	- [Setting up the Postmark service](#setting-up-the-Postmark-service)
+    - [Setting up the Postmark service](#setting-up-the-Postmark-service)
 - [Usage](#usage)
 - [Security](#security)
 - [Credits](#credits)
@@ -27,7 +27,54 @@ If using Laravel 5.5+ the package will be auto-discovered.
 
 ## Usage
 
-TBD
+In every `Notifiable` model you wish to be notifiable via Postmark, you must add an email address to that model accessible through a `routeNotificationForPostmakr` method:
+```php
+class User extends Eloquent
+{
+    use Notifiable;
+
+    public function routeNotificationForPostmark()
+    {
+        return $this->email;
+    }
+}
+```
+You may now tell Laravel to send notifications to Discord channels in the `via` method:
+```php
+use Spur\Postmark\PostmarkChannel;
+use Spur\Postmark\PostmarkMessage;
+
+class GameChallengeNotification extends Notification
+{
+    public function via($notifiable)
+    {
+        return [PostmarkChannel::class];
+    }
+
+    public function toPostmark($notifiable)
+    {
+    	$url = url('/invoice/'.$this->invoice->id);
+    
+        return (new PostmarkMessage)
+            ->greeting('Hello!')
+            ->line('One of your invoices has been paid!')
+            ->action('View Invoice', $url)
+            ->line('Thank you for using our application!');
+    }
+}
+```
+Just like regular `mail` type notifications, you can also send Markdown emails:
+```php
+public function toMail($notifiable)
+{
+    $url = url('/invoice/'.$this->invoice->id);
+
+    return (new MailMessage)
+        ->subject('Invoice Paid')
+        ->markdown('mail.invoice.paid', ['url' => $url]);
+}
+```
+In fact, the Postmark channel has the same API as the built-in Laravel `mail` channel. Follow the Laravel [Mail Notifications](https://laravel.com/docs/5.6/notifications#mail-notifications) and [Markdown Mails Notifications](https://laravel.com/docs/5.6/notifications#markdown-mail-notifications) documentation for full options.
 
 ## Testing
 
