@@ -6,7 +6,7 @@ use Spur\Postmark\PostmarkMessage;
 
 class PostmarkMessageTest extends TestCase
 {
-    /** @var GcmMessage */
+    /** @var PostmarkMessage */
     protected $message;
 
     public function setUp()
