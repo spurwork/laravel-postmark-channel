@@ -86,7 +86,7 @@ In fact, the Postmark channel has the same API as the built-in Laravel `mail` ch
 
 ### Tracking notifications
 
-Once of the benefits of using the Postmark channel is that it easily allows event tracking, such as deliveries, clicks, opens, and bounces. To track email events you must first store each notification in your database. The table storing the emails must at least have a column to track the email's Postmark-specific `MessageID`.
+One of the benefits of using the Postmark channel over the default `mail` channel is that allows for event tracking, such as deliveries, clicks, opens, and bounces on sent emails. To track email events you must first store each notification in your database, which must at least have a column to track the email's Postmark-specific `MessageID`.
 
 To capture the ID on send we listen to Laravel's `Illuminate\Notifications\Events\NotificationSent` event. Register a listener for this event in your `EventServiceProvider`:
 
