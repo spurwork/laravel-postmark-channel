@@ -21,6 +21,9 @@ This adds a Postmark notification channel for Laravel that allows your app to le
 
 ## Installation
 
+Requires 7.0+
+
+
 ```bash
 $ composer require appletonlearning/laravel-postmark-channel
 ```
