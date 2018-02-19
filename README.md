@@ -21,7 +21,7 @@ This adds a Postmark notification channel for Laravel that allows your app to le
 
 ## Installation
 
-Requires 7.0+
+Requires PHP 7.0+
 
 
 ```bash
