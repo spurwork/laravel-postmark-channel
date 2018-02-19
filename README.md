@@ -1,4 +1,4 @@
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/appletonlearning/laravel-postmark-channel.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/:package_name)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/appletonlearning/laravel-postmark-channel.svg?style=flat-square)](https://packagist.org/packages/appletonlearning/laravel-postmark-channel)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://travis-ci.org/appletonlearning/laravel-postmark-channel.svg?branch=master)](https://travis-ci.org/appletonlearning/laravel-postmark-channel)
 
