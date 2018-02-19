@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/appletonlearning/laravel-postmark-channel.svg?branch=master)](https://travis-ci.org/appletonlearning/laravel-postmark-channel)
+
 # Postmark notification channel for Laravel
 
 This adds a Postmark notification channel for Laravel that allows your app to leverage the Postmark API for tracking events related to your emails, like opens, bounces, clicks, etc.
